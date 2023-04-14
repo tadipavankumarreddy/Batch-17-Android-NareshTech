@@ -328,3 +328,328 @@ class Main{
 ```
 
 ***Java OOPS***
+- oops -> Object oriented programming system
+- Java Purely OOP language
+- You cannot write a program without declaring a class
+- Everything in java is built around objects in java
+
+***Important Concepts***
+- Objects
+- classes
+- Inheritance
+- Polymorphism
+- Abstration & Interfaces
+- Encapsulation
+
+***Objects***
+- Any real world entity can be considered as an object if it exhibits properties
+and behavior.
+- An Object is an instance(copy) of a class.
+
+***Class***
+- A class is a blueprint of an object	
+	- variables(instance) in the class they are allotted with memory
+	- Only when you create an object(a copy) for the class, the memory is created
+	- Always keep the first letter of the class name as capital.
+***Syntax of Creating a class***
+```java
+class Dog{
+	// properties -> variables
+	// Behaviors -> Methods
+}
+```
+
+**Example**
+```java
+class Dog{
+    // properties
+    String name;
+    int age;
+    double weight;
+    
+    // behaviors
+    public void barkAtStrangers(){
+        System.out.println("Bow Bow! "+name);
+    }
+    
+    public void swim(){
+        System.out.println("I can Swim "+age);
+    }
+}
+
+class Main{
+    
+    public static void main(String[] args) {
+            Dog d1 = new Dog();
+            d1.name = "Jimmy";
+            d1.age = 20;
+            d1.weight = 25.3;
+            d1.barkAtStrangers();
+            
+            Dog d2 = new Dog();
+            d2.name = "Tommy";
+            d2.age = 30;
+            d2.weight = 55.2;
+            d2.swim();
+            
+    }
+}
+```
+
+***Constructors in Java***
+- At the time of initializing an object, if you want to intialize a few variables 
+of that object, you can use a constructor.
+- There is a default constructor available for every class you create
+- In java, we can have multiple constructors for the same class (Overloading constructors)
+- Types of Constructors
+	- Default Constructors (No arguments)
+	- Parameterized constructors (Arguments)
+- Constructors look like methods but does not have return types.
+- The name of the constructor should be the same as that of the class name.
+
+```java
+class Dog{
+    // properties
+    String name;
+    int age;
+    double weight;
+    Dog(){
+        
+    }
+    
+    Dog(String n, int a, double w){
+      name = n;
+      age = a;
+      weight = w;
+    }
+    
+    // behaviors
+    public void barkAtStrangers(){
+        System.out.println("Bow Bow! "+name);
+    }
+    
+    public void swim(){
+        System.out.println("I can Swim "+age);
+    }
+}
+
+class Main{
+    
+    public static void main(String[] args) {
+            Dog d1 = new Dog("Jimmy",10,30.5);
+            d1.barkAtStrangers();
+            
+            Dog d2 = new Dog();
+            d2.name = "Tommy";
+            d2.age = 30;
+            d2.weight = 55.2;
+            d2.swim();
+            
+    }
+}
+```
+
+***Command line arguments in java***
+```java
+class King{
+  public static void main(String a[]){
+    for(String d : a){
+      System.out.println(d);
+    }
+  }
+}
+```
+
+***Inheritance in Java***
+- It is a mechanism in which one class aquires the properties & behaviors 
+of another class
+- The class that acquires the properties of another class is called "Derived class",
+"Sub class" or "Child Class"
+- The class from which the properties are acquired is called Base class or parent
+class or super class.
+
+***Types of Inheritance***
+- Single Inheritance
+- Multi Level Inheritance
+- Hierarchical Inheritance
+- Multiple Inheritance (this is not supported in Java)
+
+***Example - Single Inheritance***
+```java
+import java.lang.Math;
+
+class Parent{
+    int a;
+    
+    public int square(){
+        return a*a;
+    }
+}
+
+class Child extends Parent{
+    double d;
+    public double squareRoot(){
+        return Math.sqrt(d);
+    }
+}
+
+
+class Main{
+    public static void main (String[] args) {
+        Child c = new Child();
+        c.a = 10;
+        int x = c.square();
+        System.out.println(x);
+        
+        c.d = 9;
+        double d = c.squareRoot();
+        System.out.println(d);
+    }
+}
+```
+
+***Example - Multi Level Inheritance***
+```Java
+import java.lang.Math;
+
+class Parent{
+    int a;
+    
+    public int square(){
+        return a*a;
+    }
+}
+
+class Child extends Parent{
+    double d;
+    public double squareRoot(){
+        return Math.sqrt(d);
+    }
+}
+
+class GrandChild extends Child{
+    double x,y;
+    public double num2Power(){
+        return Math.pow(x,y);
+    }
+}
+
+class Main{
+    public static void main (String[] args) {
+        GrandChild c = new GrandChild();
+        c.a = 10;
+        int x = c.square();
+        System.out.println(x);
+        
+        c.d = 9;
+        double d = c.squareRoot();
+        System.out.println(d);
+        
+        c.x = 5; c.y = 2;
+        double an = c.num2Power();
+        System.out.println(an);
+    }
+}
+```
+
+***Example - Hierarchical Inheritance***
+```java
+class Animal{
+    public void eat(){
+        System.out.println("Eating...");
+    }
+}
+
+class Dog extends Animal{
+    public void bark(){
+        System.out.println("Bow Bow");
+    }
+}
+
+class Cat extends Animal{
+    public void shout(){
+        System.out.println("Meow Meow");
+    }
+}
+
+class Main{
+    public static void main (String[] args) {
+        Cat c = new Cat();
+        c.shout(); c.eat();
+        
+        Dog d = new Dog();
+        d.bark(); d.eat();
+    }
+}
+```
+
+***Polymorphism***
+- Means existing in multiple Forms
+- Two types of Polymorphism
+	- run time (method overriding)
+	- compile time (method overloading)
+- Compile time Polymorphism
+	- if a class has multiple methods of the same name but different number/ 
+	different types of parameters, then it is known as Compile time polymorphism
+```java
+class SumOfNumbers{
+    public void sum(int a, int b){
+        System.out.println(a+b);
+    }
+    
+    public void sum(int a, int b, int c){
+        System.out.println(a+b+c);
+    }
+    
+    public void sum(double a, double b){
+        System.out.println(a+b);
+    }
+}
+
+class Main{
+    public static void main (String[] args) {
+        SumOfNumbers s = new SumOfNumbers();
+        s.sum(10,20);
+        s.sum(10,20,30);
+        s.sum(10.23,20.25);
+    }
+}
+```
+
+- Run time Polymorphism (Method overriding)
+	- Inorder to implement method overriding, we need the inheritance implemented
+	- Method overrding means that creating the same method in the child class 
+	which is already present in the parent class.
+```java
+class Summing{
+    public void sum(int a, int b){
+        System.out.println(a+b);
+    }
+}
+class SumOfNumbers extends Summing{
+    
+    @Override
+    public void sum(int a, int b){
+        System.out.println("Counting....");
+        System.out.println(a+b);
+    }
+    
+    public void sum(int a, int b, int c){
+        System.out.println(a+b+c);
+    }
+    
+    public void sum(double a, double b){
+        System.out.println(a+b);
+    }
+}
+
+class Main{
+    public static void main (String[] args) {
+        SumOfNumbers s = new SumOfNumbers();
+        s.sum(10,20);
+        s.sum(10,20,30);
+        s.sum(10.23,20.25);
+    }
+}
+```
+
