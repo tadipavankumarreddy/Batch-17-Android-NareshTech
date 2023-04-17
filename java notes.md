@@ -652,4 +652,207 @@ class Main{
     }
 }
 ```
+***Super Keyword in java***
+- Super keyword in java is used to refer to the immediate super class object
+- if you create an object for a class B that extends to Class A, 
+implicitly there will be an object created for class A. To refer to the implicitly 
+created object, we use `super` keyword.
 
+*** Example - Using the super keyword to refer to the immediate parent class variable
+```java
+class A{ // this is super class
+    int count = 0;
+}
+
+class B extends A { // this is the sub class
+    int count = 0;
+    public void display(){
+        super.count = super.count + 10;
+        System.out.println(super.count); // 10
+        System.out.println(count); // 1
+    }
+}
+
+class Main{
+    public static void main (String[] args) {
+        B b = new B();
+        b.count = b.count+1;
+        b.display();
+    }
+}
+```
+
+***Example - Using super keyword to access the immediate parent class Method***
+```java
+class A{ // this is super class
+    int count = 0;
+    public void display(){
+        System.out.println("Pavan");
+    }
+}
+
+class B extends A { // this is the sub class
+    int count = 0;
+    public void display(){
+        super.count = super.count + 10;
+        System.out.println(super.count); // 10
+        System.out.println(count); // 1
+        super.display();
+    }
+}
+
+class Main{
+    public static void main (String[] args) {
+        B b = new B();
+        b.count = b.count+1;
+        b.display();
+    }
+}
+```
+
+***Example - Using Super keyword to access the immediate super class's Constructor***
+```java
+class A{ // this is super class
+    int count = 0;
+    A(int c){
+        count = c;
+        System.out.println("Super class constructor is called!!");
+    }
+    public void display(){
+        System.out.println("Pavan");
+    }
+}
+
+class B extends A { // this is the sub class
+    B(){
+        super(123);
+        System.out.println("constructor Invoked");
+    }
+    int count = 0;
+    public void display(){
+        super.count = super.count + 10;
+        System.out.println(super.count); // 10
+        System.out.println(count); // 1
+        super.display();
+    }
+}
+
+class Main{
+    public static void main (String[] args) {
+        B b = new B();
+        b.count = b.count+1;
+        b.display();
+    }
+}
+```
+***Two Types of Variables***
+- Class Variable - They belong to the class and shared commonly by all the objects that are created for that class.
+- Instance Variables - They belong to the object(Instance) created.
+***static Keyword***
+- It is used for memory management.
+- Static keyword is not only applied for variables, it can also be applied for 
+methods, blocks and nested classes.
+- Java static variables
+	- Variables that are defined with static keyword
+	- If you have a common property that needs to be applied for 
+	all the objects that you create for that class - then, to manage the memory well,
+	you can use a static variable.
+	- As the static variable belongs to the class, we can access it without creating an object
+***Example - Using static keyword to create a class variable***
+```java
+class A{
+    // the aim is to calculate the number of objects created for this class
+    static int count = 0;
+    A(){
+        count++;
+    }
+    
+    public void display(){
+        System.out.println("there are "+count+" number of Objects created so far!");
+    }
+}
+
+class Main {
+    public static void main (String[] args) {
+        A a = new A();
+        a.display();
+        A b = new A();
+        A c = new A();
+        A d = new A();
+        A e = new A();
+        a.display();
+    }
+}
+```
+
+***Example - Static variables can be accessed without a need of creating an instance of a class***
+```java
+class A{
+    static int count = 0;
+    A(){
+        count++;
+    }
+    
+    public void display(){
+        System.out.println(count);
+    }
+}
+
+class Main {
+    public static void main (String[] args) {
+        A.count = 100;
+        new A().display();
+    }
+}
+```
+
+***Static Methods***
+- Methods that belong to the class but not the instances(Objects) of the class
+- Static Methods can be accessed directly.
+- Static methods cannot access non static members of a class.
+```java
+class A{
+    int count = 0;
+    A(){
+        count++;
+    }
+    
+    public static void display(){
+        System.out.println(count);
+    }
+}
+
+class Main {
+    public static void main (String[] args) {
+        A a = new A();
+        A.display();
+    }
+}
+```
+
+***Example - Using Static Methods***
+```javaclass A{
+    static int count = 0;
+    boolean status = false;
+    public static void changeStatus(){
+        count = count + 10;
+    }
+    
+    public void display(){
+        changeStatus();
+        System.out.println(count);
+    }
+}
+
+class Main{
+    public static void main (String[] args) {
+        A a = new A();
+        a.display();
+        
+        A b = new A();
+        b.display();
+    }
+}```
+
+
+ 
