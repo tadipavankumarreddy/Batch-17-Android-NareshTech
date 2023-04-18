@@ -854,5 +854,216 @@ class Main{
     }
 }```
 
+***Java Static Blocks***
+- These blocks can be used to initialize the static data members of a class
+- It is something that gets executed before main() method. 
 
- 
+```java
+class Main{
+    static{
+        System.out.println("Executed before Main");
+    }
+    
+    public static void main (String[] args) {
+        System.out.println("Hello World");
+    }
+}
+```
+
+**Question**
+```Is it possible to execute a java program with out the main method ? ```
+```No, from the latest versions of java, it is not at all possible. But in the older versions of java, we use to use java static blocks to the same```
+
+***this keyword in java***
+- `this` is a reference variable that refers to the current class object
+- Uses of `this` keyword
+	- This can be used to implicitly invoke current class method
+	- this() can be used to invoke the current class constructor.
+	- this can be passed as an argument in a method call.
+***Example - this can be used to refer to the current class instance variables***
+```java
+class Employee{
+    String name;
+    int age;
+    
+    Employee(String name, int age){
+        this.name = name;
+        this.age = age;
+    }
+    
+    public void display(){
+        System.out.println(name+" "+age);
+    }
+}
+
+class Main{
+    public static void main (String[] args) {
+        Employee e = new Employee("Pavan",30);
+        e.display();
+    }
+}
+```
+
+***Example - this can be used to access the current objects method***
+```java
+class Boss{
+    public void printDeveloperInfo(){
+        System.out.println("Developer has 8 years of experience!");
+    }
+}
+class Employee extends Boss{
+    String name;
+    int age;
+    
+    Employee(String name, int age){
+        this.name = name;
+        this.age = age;
+    }
+    
+    public void display(){
+        System.out.println(name+" "+age);
+        this.printDeveloperInfo();
+    }
+}
+
+class Main{
+    public static void main (String[] args) {
+        Employee e = new Employee("Pavan",30);
+        e.display();
+    }
+}
+```
+
+***Example - this can be used to call the current objects constructor***
+```java
+class Employee{
+    String name;
+    int age;
+    int salary;
+    
+    Employee(String name, int age){
+        this(name, age, 30000);
+    }
+    
+    Employee(String name, int age, int salary){
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+    }
+    
+    public void display(){
+        System.out.println(name+" "+age+" "+salary);
+    }
+}
+
+class Main{
+    public static void main (String[] args) {
+        Employee e = new Employee("Pavan",30);
+        e.display();
+    }
+}
+```
+
+***final Keyword***
+- final keyword restricts the user to perform certain kinds of actions
+- the value of the final variables cannot be altered.
+- the final methods cannot be overrided.
+- the final classes cannot be inherited.
+
+***Example - the final classes cannot be inherited***
+```java
+final class Pavan{
+    
+}
+
+class Kumar extends Pavan{
+    
+}
+
+class Main{
+    public static void main (String[] args) {
+        System.out.println("Hello world!");
+    }
+}
+```
+***Example - the value of the final variables cannot be altered.***
+```java
+class Main{
+    
+    static final int count = 0;
+    public static void main (String[] args) {
+        count = 2;
+    }
+}
+```
+***Example - the final methods cannot be overrided.***
+```java
+class A{
+    public final void display(){
+        System.out.println("Hello A");
+    }
+}
+
+class B extends A{
+    
+    @Override
+    public void display(){
+        System.out.println("Hello B");
+    }
+}
+
+class Main{
+    public static void main (String[] args) {
+        B b =new B();
+        b.display();
+    }
+}
+```
+***Abstract classes in Java***
+- When you declare a class with `abstract` keyword, that is called as an abstract class
+- In abstract classes, along with the normal methods  that we declare and define, we can also have abstract methods (Abstract methods are those methods where the body of the method is not defined - Abstract methods can also be declared using abstract keyword)
+***Abstraction***
+- Abstraction is the process of hidin the implementation details and also showing the functionality to the user.
+- Two Ways to achieve abstraction in java
+	- Using abstract classes and methods (0% to 100%)
+	- Interfaces (100%)
+	
+***Important Points to remember***
+- abstract classes must be inherited by the other classes where the definition of the abstract methods of the class will be written
+- abstract classes cannot be instantiated (you cannot create objects)
+
+***Example***
+```java
+abstract class RBI{
+    RBI(){
+        System.out.println("this bank follows RBI guidelines");
+    }
+    
+    public abstract int homeLoanInterest();
+    
+    public final int personalLoanInterest(){
+        return 7;
+    }
+}
+
+class SBI extends RBI{
+    public int homeLoanInterest(){
+        return 17;
+    }
+}
+
+class ICICI extends RBI{
+    public int homeLoanInterest(){
+        return 16;
+    }
+}
+
+class Main{
+    public static void main (String[] args) {
+        SBI s = new SBI();
+        System.out.println(s.personalLoanInterest());
+        System.out.println(s.homeLoanInterest());
+    }
+}
+```
+
