@@ -1066,4 +1066,70 @@ class Main{
     }
 }
 ```
+***Interfaces in Java***
+- An Interface in java is a blueprint of a class
+- It consists of Static constants and abstract methods.
+- With Interfaces, we can ensure 100% Abstraction.
+- With Interfaces, we can also implement Multiple Inheritance (Which is not supported by java by default)
 
+***Sytax of Declaring an Interface***
+```java
+interface InterfaceName{
+// Static constants
+// Abstract Methods
+}
+```
+
+***Basic Example***
+```java
+interface NareshTech{
+    // You need not to write abstract keyword. because the methods in an interface are abstract by default
+    void display();
+}
+
+class A implements NareshTech{
+    
+    public void display(){
+        System.out.println("Hello World!");    
+    }
+}
+
+class Main{
+    public static void main (String[] args) {
+        A a = new A();
+        a.display();
+    }
+}
+```
+***Example - Implementing Multiple Inheritance using Interfaces in java***
+```java
+interface A{
+    void printMessage();
+}
+
+interface B{
+    void display();
+}
+
+class C implements A,B{
+    public void printMessage(){
+        System.out.println("Hello");
+    }
+    
+    public void display(){
+        System.out.println("Hai");
+    }
+}
+
+class Main{
+    public static void main (String[] args) {
+        C c = new C();
+        c.printMessage(); 
+        c.display();
+    }
+}
+```
+
+***Two Imp Points to remember***
+- You `implements` an interface
+- you `extends` a class
