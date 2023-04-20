@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Register Me (UI Components)</string>
+
+    <string-array name="country_names">
+        <item>-Select a Country-</item>
+        <item>India</item>
+        <item>Pakistan</item>
+        <item>Bangladesh</item>
+        <item>China</item>
+        <item>Russia</item>
+        <item>Germany</item>
+    </string-array>
+
 </resources>
