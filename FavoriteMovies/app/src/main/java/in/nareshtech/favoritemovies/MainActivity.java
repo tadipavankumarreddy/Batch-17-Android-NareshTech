@@ -1,6 +1,10 @@
 package in.nareshtech.favoritemovies;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.os.Bundle;
 
@@ -10,13 +14,21 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private List<FavMovie> moviesList;
-
+    private RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // Step 1:Prepare Data
         initData();
+        recyclerView = findViewById(R.id.recyclerview);
+        FavMoviesAdapter fma = new FavMoviesAdapter(this,moviesList);
+        recyclerView.setAdapter(fma);
+
+        // Now you can arrange the items based on your interest
+        /*recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));*/
+       /* recyclerView.setLayoutManager(new GridLayoutManager(this,2));*/
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
     }
 
     private void initData() {
