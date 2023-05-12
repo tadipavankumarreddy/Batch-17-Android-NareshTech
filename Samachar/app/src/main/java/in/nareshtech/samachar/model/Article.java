@@ -1,4 +1,4 @@
-package in.nareshtech.samachar;
+package in.nareshtech.samachar.model;
 
 public class Article {
     private String title;

@@ -1,7 +1,9 @@
 
-package in.nareshtech.samachar;
+package in.nareshtech.samachar.model;
 
-public class Datum {
+import java.io.Serializable;
+
+public class Datum implements Serializable {
 
     private String author;
     private String content;

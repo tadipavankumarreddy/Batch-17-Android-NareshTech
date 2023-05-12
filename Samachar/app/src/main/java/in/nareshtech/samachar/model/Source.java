@@ -1,5 +1,5 @@
 
-package in.nareshtech.samachar;
+package in.nareshtech.samachar.model;
 
 import java.util.List;
 // ctrl+alt+o -> removes unused packages

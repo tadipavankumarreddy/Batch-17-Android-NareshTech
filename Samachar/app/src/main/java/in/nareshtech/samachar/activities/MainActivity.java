@@ -1,4 +1,4 @@
-package in.nareshtech.samachar;
+package in.nareshtech.samachar.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+
+import in.nareshtech.samachar.R;
 
 public class MainActivity extends AppCompatActivity {
 
