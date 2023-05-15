@@ -1,8 +1,10 @@
 package in.nareshtech.samachar.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.browser.customtabs.CustomTabsIntent;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -18,6 +20,7 @@ public class DetailsActivity extends AppCompatActivity {
     ImageView imageView;
     TextView title, content;
 
+    Datum d;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +31,7 @@ public class DetailsActivity extends AppCompatActivity {
         content = findViewById(R.id.details_content);
 
         Intent i = getIntent();
-        Datum d = (Datum) i.getSerializableExtra("DATA");
+        d = (Datum) i.getSerializableExtra("DATA");
 
         Glide.with(this).load(d.getImageUrl()).into(imageView);
         title.setText(d.getTitle());
@@ -36,10 +39,18 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     public void readMore(View view) {
-
+        /*Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(d.getReadMoreUrl()));
+        startActivity(i);*/
+        CustomTabsIntent intent = new CustomTabsIntent.Builder()
+                .build();
+        intent.launchUrl(DetailsActivity.this, Uri.parse(d.getReadMoreUrl()));
     }
 
     public void readOriginal(View view) {
-
+        /*Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(d.getUrl()));
+        startActivity(i);*/
+        CustomTabsIntent intent = new CustomTabsIntent.Builder()
+                .build();
+        intent.launchUrl(DetailsActivity.this, Uri.parse(d.getUrl()));
     }
 }
