@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "837875714359",
+    "project_id": "fir-demo-a7dbe",
+    "storage_bucket": "fir-demo-a7dbe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:837875714359:android:59d891fe200a8b695772b2",
+        "android_client_info": {
+          "package_name": "in.nareshtech.firebaserealtimedatabases"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "837875714359-vug99bhpkv22v1q7ubimmdsmmn2klsa4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLcpEG-iUrIVWCW0zMl6dr7wmkfl7Ttpc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "837875714359-vug99bhpkv22v1q7ubimmdsmmn2klsa4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
