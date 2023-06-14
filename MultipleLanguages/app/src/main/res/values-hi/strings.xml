@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">विभिन्न भाषाएं</string>
+    <string name="hello_world">नमस्ते दुनिया!</string>
+    <string name="enter_your_name">अपना नाम डालें</string>
+    <string name="save">बचाएं</string>
+    <string name="load">लोड करें</string>
+</resources>
